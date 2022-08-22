@@ -1,3 +1,40 @@
+const myArray = [];
+
+
+function addedPlayerName (myArray){
+	let playerList = document.getElementById('playerList');
+	playerList .innerText =  "";
+	for (let i = 0; i < myArray.length; i++) {
+		const eachPlayerName = myArray[i].playerName;
+		console.log(eachPlayerName);
+		const li = document.createElement('li');
+		li.innerHTML = `
+             <li class="list-group-item   fs-3 d-flex justify-content-start gap-5 ">
+             <span >${i+1}</span>
+             <span>${eachPlayerName}</span>
+
+         </li>
+    
+    
+    `;
+
+		playerList.appendChild(li);
+	}
+}
+function addToCart(element) {
+   const playerName =  element.parentNode.children[0].innerText;
+
+   const playerNameObj = {
+     playerName : playerName,
+   }
+   console.log(playerNameObj);
+   myArray.push(playerNameObj);
+   console.log(myArray)
+   addedPlayerName(myArray);
+  
+
+}
+// calculate section
 function getFieldAmountById(elementId) {
   const amountFieldElement = document.getElementById(elementId);
 	const amountFieldString = amountFieldElement.value;
