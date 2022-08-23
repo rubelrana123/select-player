@@ -28,10 +28,16 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
 document.getElementById('total-calculate-btn').addEventListener('click', function () {
 		const managerAmount = getFieldAmountById('managerFieldAmount');
 		const coachAmount = getFieldAmountById('coachFieldAmount');
-		const previousTotalAmount = getTextAmountById('totalAmount');
+		const totalAmount = getTextAmountById('totalAmount');
 		const currentExpensesAmount = getTextAmountById('expensesAmount');
-
-		const updateTotalAmount =	managerAmount + coachAmount + previousTotalAmount + currentExpensesAmount;
+		//check input field 
+		if(isNaN(managerAmount) || isNaN(coachAmount) || managerAmount <0 || coachAmount < 0){
+				alert('Please input valid digits only!');
+				getTheElement("managerFieldAmount").value = '';
+				getTheElement('coachFieldAmount').value = '';
+			return;
+		}
+		const updateTotalAmount =	managerAmount + coachAmount + totalAmount + currentExpensesAmount;
 
 		setElementValueById('totalAmount', updateTotalAmount);
 	});

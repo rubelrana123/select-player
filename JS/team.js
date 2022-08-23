@@ -8,10 +8,12 @@ for (const button of buttons) {
 			alert("You can't add more than 5 player!");
 			return;
 		}
+	  const selectField = document.getElementById('select-field');
+		selectField.innerText = count+1;
 		button.setAttribute('disabled', true);
 		const playerName = event.target.parentNode.childNodes[1].innerText;
 		const li = document.createElement('li');
-		li.innerText = count+1 +  " " + playerName;
+		li.innerText = count+1+'.' +  " " + playerName;
 		playerList.appendChild(li);
 	});
 }
