@@ -1,8 +1,8 @@
 document.getElementById('calculate-btn').addEventListener('click', function () {
 	const perPlayerAmount = getFieldAmountById('playerFieldAmount');
 	const playerValue = document.getElementById('playerFieldAmount').value;
-	console.log(typeof perPlayerAmount);
-	console.log(typeof playerValue);
+	// console.log(typeof perPlayerAmount);
+	// console.log(typeof playerValue);
 
 	if (isNaN(playerValue) || perPlayerAmount < 0 || isNaN(perPlayerAmount)) {
 		alert('Please input valid digits only!');
@@ -25,16 +25,13 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
 	setElementValueById('expensesAmount', playerExpensesAmount);
 });
 
-document
-	.getElementById('total-calculate-btn')
-	.addEventListener('click', function () {
+document.getElementById('total-calculate-btn').addEventListener('click', function () {
 		const managerAmount = getFieldAmountById('managerFieldAmount');
 		const coachAmount = getFieldAmountById('coachFieldAmount');
 		const previousTotalAmount = getTextAmountById('totalAmount');
-		const expensesAmount = getTextAmountById('expensesAmount');
+		const currentExpensesAmount = getTextAmountById('expensesAmount');
 
-		const updateTotalAmount =
-			managerAmount + coachAmount + previousTotalAmount + expensesAmount;
+		const updateTotalAmount =	managerAmount + coachAmount + previousTotalAmount + currentExpensesAmount;
 
 		setElementValueById('totalAmount', updateTotalAmount);
 	});
